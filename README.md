@@ -1,1 +1,1 @@
-# src and dist files for Website Demo project on http://spectivestack.com/ samples
+# Gulp build and html, scss source files for Website Demo project on http://spectivestack.com/ samples.
