@@ -1,0 +1,1 @@
+"use strict";$(function(){$(".hero").click(function(){$(this).toggleClass("changeBackground")})});

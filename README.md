@@ -1,1 +1,1 @@
-# demo-website
+# src and dist files for Website Demo project on http://spectivestack.com/ samples
