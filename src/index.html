@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
     <meta name="format-detection" content="telephone-no">
-    <title>S3 Components | Home</title>
+    <title>S3 Components | Main Page</title>
 
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'>
     <!-- Place favicon.ico in the root directory -->
@@ -15,6 +15,7 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="styles/circle.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
@@ -26,6 +27,13 @@
     <link rel="stylesheet" href="styles/custom.css">
     <!-- endbuild -->
     
+    <!-- build:js scripts/preloader.vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/js-cookie/src/js.cookie.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
@@ -34,7 +42,34 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+
+
+    <div id="loader" class="preloader">
+      <div data-loader="circle" id="circle"></div>
+    </div>
+
+    <script>
     
+        if (!Cookies.get('preloader')) {
+
+            $('html, body').css({ 'overflow-y': 'hidden', 'height': '100%' });
+            $('#loader').css({ 'background-color': 'black', 'z-index': '99999' })
+            $('#circle').css("display", "block");
+
+        $(window).load(function() {
+            $('#circle').fadeOut();
+            $("#loader").delay(1000).fadeOut("slow");
+
+            // setTimeout(function(){
+            $('html, body').css({ 'overflow-y': 'auto', 'height': 'auto' });
+            // }, 500);
+        });
+
+        Cookies.set('preloader', true, { expires: 1, path: '' });
+      }
+
+    </script>
+
     <header class="navbar navbar-static-top" role="navigation">
       <nav class="container">
         <div class="container-fluid">
@@ -46,11 +81,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">S3 <span class="brand2">Components</a>
+            <a class="navbar-brand" href="#">S3<span class="brand2">Components</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div class="collapse navbar-collapse black-inset" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
               <li><a class="page-scroll" href="#">Home</a></li>
               <li><a class="page-scroll" href="#">About Us</a></li>
@@ -64,11 +99,10 @@
     </header>
 
     <main class="index">
-      <img class="bg-portrait" src="images/main_bgo.jpg"></img>
-      <img class="bg" src="images/main_bg.jpg"></img>
       <img class="bg-nr" src="images/main_bg_nr.jpg"></img>
       <div class="hero">
-        <h1>We create<br>custom<br>hardware<br>solutions</h1>
+        <h1 class="desktop-hide">We create<br>custom<br>hardware<br>solutions</h1>
+        <h1 class="mobile-hide">We create<br>custom<br>hardware<br>solutions</h1>
       </div>
     </main>
 
@@ -80,11 +114,11 @@
               <h2>Please check out our product list</h2>
             </div>
           </div>
-          <div class="col-md-3 col-sm-0 mobile-hide">
+          <div class="col-md-3 col-sm-0 mobile-plus-hide">
             <a class="btn btn-default" href="products.html">Product List</a>
           </div>
         </div>
-        <p>S3 Components is a global distributor and provider of electronic components, semiconductors,<br class="mobile-plus-hide"> and computer peripherals.</p>
+        <p>S3 Components is a global distributor and provider of electronic components, semiconductors,<br class="tablet-hide"> and computer peripherals.</p>
          <div class="col-md-0 col-sm-12 desktop-super-hide mobile-center">
             <a class="btn btn-default" href="products.html">Product List</a>
           </div>
@@ -95,6 +129,7 @@
       <p>Copyright © 2016 by S3 Components Inc</p>
       <p class="iphone5">Copyright © 2016 by S3 Comp. Inc</p>
     </footer>
+    <section class="ipadpro-fill"></section>
 
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -107,11 +142,6 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
     
     <!-- build:js scripts/plugins.js -->
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
