@@ -1,1 +1,1 @@
-# Gulp build and html, scss source files for Website Demo.
+# Gulp build and html, scss source files for static demo.
