@@ -1,5 +1,5 @@
 $(function() {
-		// Toggle background rgba color on mobile
+		// Toggle background color & opacity on mobile
 	$('.hero').click( function() { 
 		$(this).toggleClass('changeBackground');
 	});
